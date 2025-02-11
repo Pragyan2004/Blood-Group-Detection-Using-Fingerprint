@@ -6,7 +6,7 @@ This repository contains the code for a simple web application that attempts to 
 
 # Requirements:
 
-* Python 3.x
+* Python
 * Flask
 * Scikit-learn
 * Pandas
