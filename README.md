@@ -1,4 +1,4 @@
-**Fingerprint-Based Blood Group Prediction**
+# Fingerprint-Based Blood Group Prediction
 
 # Introduction:
 
@@ -24,6 +24,7 @@ This repository contains the code for a simple web application that attempts to 
 
 
 # Run the Flask app
+
          python app.py
          
 # Screenshot:
