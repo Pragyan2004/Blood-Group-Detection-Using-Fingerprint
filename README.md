@@ -13,6 +13,9 @@ This repository contains the code for a simple web application that attempts to 
 * NumPy
 * Pickle
 
+# Dataset:-
+         https://www.kaggle.com/datasets/rajumavinmar/finger-print-based-blood-group-dataset/data
+
 # Features:
 
 * Web-based interface for inputting fingerprint features.
