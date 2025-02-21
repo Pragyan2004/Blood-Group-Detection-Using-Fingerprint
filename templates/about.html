@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Fingerprint Blood Group Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Blood Group Prediction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/predict">Predict</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h2 class="text-center">About This Project</h2>
+        <p class="lead text-center">Fingerprint Blood Group Prediction is an AI-based system that determines blood groups from fingerprint images.</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>How It Works</h3>
+                <ul>
+                    <li>Users upload a fingerprint image.</li>
+                    <li>The image is preprocessed and analyzed using deep learning.</li>
+                    <li>A trained AI model predicts the blood group.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h3 class="text-center">Why Use This System?</h3>
+            <div class="row mt-4">
+                <div class="col-md-4 text-center">
+                    <h4>Fast & Accurate</h4>
+                    <p>Uses advanced deep learning models for quick and reliable predictions.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h4>Non-Invasive</h4>
+                    <p>Determines blood group without requiring blood samples.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h4>Easy to Use</h4>
+                    <p>Simply upload an image, and the system does the rest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Blood Group Prediction | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
