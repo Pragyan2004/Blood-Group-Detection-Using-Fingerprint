@@ -7,16 +7,13 @@ import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-
-# Load trained model
 try:
-    model = load_model('blood_group_model.h5')  # Make sure the path is correct
+    model = load_model('blood_group_model.h5')  
 except Exception as e:
     print(f"Error loading model: {e}")
-    exit() # Exit if the model can't be loaded
+    exit()
 
-# Define allowed file extensions
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif','bmp'}  # Added gif
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif','bmp'}  
 UPLOAD_FOLDER = 'static/uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -28,10 +25,10 @@ def allowed_file(filename):
 
 def preprocess_image(img_path):
     try:
-        img = image.load_img(img_path, target_size=(128, 128)) # Consistent target size
+        img = image.load_img(img_path, target_size=(128, 128)) 
         img = image.img_to_array(img)
         img = np.expand_dims(img, axis=0)
-        img = img / 255.0  # Normalize
+        img = img / 255.0
         return img
     except Exception as e:
         print(f"Error preprocessing image: {e}")
@@ -41,15 +38,15 @@ def preprocess_image(img_path):
 def home():
     return render_template('index.html')
 
-@app.route('/predict', methods=['GET', 'POST'])  # Added GET for initial page load
+@app.route('/predict', methods=['GET', 'POST'])  
 def predict():
     if request.method == 'POST':
         if 'file' not in request.files:
-            return render_template('predict.html', error='No file uploaded') # Render with error
+            return render_template('predict.html', error='No file uploaded') 
 
         file = request.files['file']
         if file.filename == '':
-            return render_template('predict.html', error='No selected file') # Render with error
+            return render_template('predict.html', error='No selected file') 
 
         if file and allowed_file(file.filename):
             try:
@@ -58,7 +55,7 @@ def predict():
                 file.save(file_path)
 
                 img = preprocess_image(file_path)
-                if img is None: # Handle preprocessing errors
+                if img is None: 
                     return render_template('predict.html', error='Error processing image')
 
                 prediction = model.predict(img)
@@ -69,10 +66,10 @@ def predict():
 
             except Exception as e:
                 print(f"Prediction error: {e}")
-                return render_template('predict.html', error='An error occurred during prediction') # More general error
+                return render_template('predict.html', error='An error occurred during prediction') 
 
-        return render_template('predict.html', error='Invalid file format') # Render with error
-    return render_template('predict.html') # For GET request, just show the upload form
+        return render_template('predict.html', error='Invalid file format') 
+    return render_template('predict.html') 
 
 
 @app.route('/about')
